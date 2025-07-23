@@ -11,6 +11,11 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 app = Flask(__name__)
 CORS(app)
 
+# Health check or root route
+@app.route('/')
+def home():
+    return "AI Study Buddy backend is running!"
+
 @app.route("/ask", methods=["POST"])
 def ask():
     data = request.get_json()

@@ -36,5 +36,9 @@ def ask():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/", methods=["GET"])
+def home():
+    return "AI Study Buddy Backend is running!"
+
 if __name__ == "__main__":
     app.run(debug=True)
